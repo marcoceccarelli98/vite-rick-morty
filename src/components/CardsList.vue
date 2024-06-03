@@ -13,16 +13,13 @@ export default {
 </script>
 
 <template>
-  <ul>
-    <li v-for="card in store.results">
-      <AppCards
-        :image="card.image"
-        :name="card.name"
-        :status="card.status"
-        :species="card.species"
-      />
-    </li>
-  </ul>
+  <AppCards
+    v-for="card in store.results"
+    :image="card.image"
+    :name="card.name"
+    :status="card.status"
+    :species="card.species"
+  />
 </template>
 
 <style></style>

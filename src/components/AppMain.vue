@@ -38,4 +38,9 @@ export default {
 .research {
   margin-bottom: 50px;
 }
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
 </style>
