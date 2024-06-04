@@ -3,6 +3,12 @@ import { store } from "../data/store.js";
 export default {
   name: "SearchBar",
   emits: ["search"],
+  methods: {
+    resetInputs() {
+      store.searchName = "";
+      store.statusSelected = "";
+    },
+  },
   data() {
     return {
       store,
@@ -24,7 +30,7 @@ export default {
       <option value="unknown">unknown</option>
     </select>
     <button @click="$emit('search')">Search</button>
-    <button>Reset</button>
+    <button @click="resetInputs">Reset</button>
   </div>
 </template>
 
