@@ -24,7 +24,8 @@ export default {
       placeholder="Search character"
       v-model="store.searchName"
     />
-    <select name="" v-model="store.statusSelected" placeholder="Select status">
+    <select v-model="store.statusSelected">
+      <option value="" disabled selected>Select status</option>
       <option value="Alive">Alive</option>
       <option value="Dead">Dead</option>
       <option value="unknown">unknown</option>
@@ -54,6 +55,7 @@ button {
   margin-right: 10px;
   border-radius: 5px;
   border: 0;
+  margin-top: 10px;
 }
 
 button:first-of-type {
