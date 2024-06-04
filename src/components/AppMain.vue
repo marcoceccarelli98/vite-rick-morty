@@ -1,6 +1,7 @@
 <script>
 import CardsList from "./CardsList.vue";
 import SearchBar from "./SearchBar.vue";
+import ItemsCounter from "./ItemsCounter.vue";
 import axios from "axios";
 import { store } from "../data/store.js";
 export default {
@@ -8,6 +9,7 @@ export default {
   components: {
     CardsList,
     SearchBar,
+    ItemsCounter,
   },
 
   data() {
@@ -19,7 +21,8 @@ export default {
     searchCharacter() {
       if (store.searchName == "" && store.statusSelected == "") {
         axios.get(store.apiUrl).then((response) => {
-          this.store.results = response.data.results;
+          store.results = response.data.results;
+          store.info = response.data.info;
         });
       } else {
         axios
@@ -31,9 +34,11 @@ export default {
               store.statusSelected
           )
           .then((response) => {
-            this.store.results = response.data.results;
+            store.results = response.data.results;
+            store.info = response.data.info;
           });
       }
+      console.log(store.info);
     },
   },
   created() {
@@ -49,6 +54,7 @@ export default {
       <div class="cardContainer">
         <CardsList />
       </div>
+      <ItemsCounter :counter="store.info.count" />
     </div>
   </main>
 </template>
