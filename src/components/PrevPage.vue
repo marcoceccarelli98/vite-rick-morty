@@ -1,15 +1,8 @@
 <script>
 import { store } from "../data/store.js";
 export default {
-  name: "SearchBar",
+  name: "PrevPage",
   emits: ["search"],
-  methods: {
-    resetInputs() {
-      store.searchName = "";
-      store.statusSelected = "";
-      this.$emit("search");
-    },
-  },
   data() {
     return {
       store,

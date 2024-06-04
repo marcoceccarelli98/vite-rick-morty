@@ -4,7 +4,7 @@ export default {
   props: ["counter"],
   computed: {
     printItemsCount() {
-      return "Character founded : " + this.counter;
+      return "Characters found : " + this.counter;
     },
   },
 };
