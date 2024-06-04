@@ -1,11 +1,13 @@
 <script>
 import CardsList from "./CardsList.vue";
+import SearchBar from "./SearchBar.vue";
 import axios from "axios";
 import { store } from "../data/store.js";
 export default {
   name: "AppMain",
   components: {
     CardsList,
+    SearchBar,
   },
 
   data() {
@@ -26,7 +28,7 @@ export default {
 <template>
   <main>
     <div class="container">
-      <div class="research">RESEARCH BAR</div>
+      <SearchBar />
       <div class="cardContainer">
         <CardsList />
       </div>
