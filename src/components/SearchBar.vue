@@ -1,17 +1,27 @@
 <script>
+import { store } from "../data/store.js";
 export default {
   name: "SearchBar",
+  data() {
+    return {
+      store,
+    };
+  },
 };
 </script>
 
 <template>
   <div>
-    <input type="text" placeholder="Search character" />
-    <select name="" id="">
-      <option selected disabled>Select status</option>
-      <option value="">1</option>
-      <option value="">2</option>
-      <option value="">3</option>
+    <input
+      type="text"
+      placeholder="Search character"
+      v-model="store.searchCharacter"
+    />
+    <select name="" v-model="store.statusSelected">
+      <option selected hidden>Select status</option>
+      <option value="Alive">Alive</option>
+      <option value="Dead">Dead</option>
+      <option value="unknown">unknown</option>
     </select>
     <button>Search</button>
     <button>Reset</button>
