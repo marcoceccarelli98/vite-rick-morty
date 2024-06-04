@@ -35,4 +35,21 @@ export default {
   </div>
 </template>
 
-<style></style>
+<style>
+.cardContent {
+  margin-bottom: 50px;
+}
+
+img {
+  border-radius: 50%;
+}
+
+.textContent {
+  max-width: 250px;
+  margin: 0 auto;
+}
+
+h2 {
+  margin: 10px 0 30px 0;
+}
+</style>

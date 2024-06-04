@@ -42,5 +42,7 @@ export default {
 .cardContainer {
   display: flex;
   flex-wrap: wrap;
+  /* gap: 15px; */
+  justify-content: space-between;
 }
 </style>
