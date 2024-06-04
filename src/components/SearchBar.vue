@@ -2,6 +2,7 @@
 import { store } from "../data/store.js";
 export default {
   name: "SearchBar",
+  emits: ["search"],
   data() {
     return {
       store,
@@ -15,15 +16,14 @@ export default {
     <input
       type="text"
       placeholder="Search character"
-      v-model="store.searchCharacter"
+      v-model="store.searchName"
     />
-    <select name="" v-model="store.statusSelected">
-      <option selected hidden>Select status</option>
+    <select name="" v-model="store.statusSelected" placeholder="Select status">
       <option value="Alive">Alive</option>
       <option value="Dead">Dead</option>
       <option value="unknown">unknown</option>
     </select>
-    <button>Search</button>
+    <button @click="$emit('search')">Search</button>
     <button>Reset</button>
   </div>
 </template>

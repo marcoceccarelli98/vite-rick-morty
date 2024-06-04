@@ -15,12 +15,29 @@ export default {
       store,
     };
   },
-
+  methods: {
+    searchCharacter() {
+      if (store.searchName == "" && store.statusSelected == "") {
+        axios.get(store.apiUrl).then((response) => {
+          this.store.results = response.data.results;
+        });
+      } else {
+        axios
+          .get(
+            store.apiUrl +
+              "?name=" +
+              store.searchName +
+              "&status=" +
+              store.statusSelected
+          )
+          .then((response) => {
+            this.store.results = response.data.results;
+          });
+      }
+    },
+  },
   created() {
-    axios.get(store.apiUrl).then((response) => {
-      this.store.results = response.data.results;
-      console.log(this.store.results);
-    });
+    this.searchCharacter();
   },
 };
 </script>
@@ -28,7 +45,7 @@ export default {
 <template>
   <main>
     <div class="container">
-      <SearchBar />
+      <SearchBar @search="searchCharacter" />
       <div class="cardContainer">
         <CardsList />
       </div>
