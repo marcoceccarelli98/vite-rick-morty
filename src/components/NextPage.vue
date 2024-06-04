@@ -1,12 +1,12 @@
 <script>
 export default {
-  name: "PrevPage",
-  emits: ["prev"],
+  name: "NextPage",
+  emits: ["next"],
 };
 </script>
 
 <template>
-  <button @click="$emit('prev')">Prev</button>
+  <button @click="$emit('next')">Next</button>
 </template>
 
 <style scoped>
